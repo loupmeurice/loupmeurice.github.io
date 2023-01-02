@@ -1,0 +1,62 @@
+.draggable {
+	position: absolute;
+	z-index: 9999;
+}
+
+.rack .draggable {
+	/*top: -15px !important;*/
+}
+
+.playable-tile .transparent {
+	background-color: transparent !important;
+}
+
+.mini.draggable {
+
+	position: relative !important;
+}
+
+.temporary {
+	background-color: yellow !important;
+	background-image: none !important;
+}
+
+.temporary::before {
+	text-shadow: none !important;
+	color: black !important;
+}
+
+.latestPlay {
+	background-color: #FFF5EE !important;
+	background-image: none !important;
+}
+
+.latestPlay::before {
+	text-shadow: none !important;
+	color: black !important;
+}
+
+.alwaysOnTop {
+	z-index: 99999;
+}
+
+.temporary.invalid {
+	border: solid red 3px;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+
+.latestPlay.invalid {
+	border: solid red 3px;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+
+.playable-tile.invalid {
+	border: solid red 3px;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
