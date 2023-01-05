@@ -1,0 +1,220 @@
+@font-face {
+  font-family: 'Oswald';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/oswald/v49/TK3_WkUHHAIjg75cFRf3bXL8LICs1_FvsUZiYA.ttf) format('truetype');
+}
+:root {
+  padding: 5vh 5vw;
+  background-color: #e6c998;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-image: radial-gradient(center, #7c6f59, transparent);
+}
+:root::before {
+  position: fixed;
+  content: "";
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  opacity: 0.8;
+  background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/49914/grit-fs8.png);
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  box-sizing: border-box;
+  position: absolute !important;
+  top: 0;
+  left: 0;
+}
+.rack {
+  display: flex;
+  justify-content: center;
+  top: min(2vh,2vw);
+  /*height: min(20vh,20vw);*/
+}
+
+.rack img {
+  width: min(60vh, 60vw);
+}
+
+.rack .playable-tile {
+  margin: 0.5mm;
+  background-color: #f5cf90;
+  background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/49914/veneer-birch-texture-fs8.png');
+  position: relative;
+  width: min(7vh, 7vw);
+  height: min(7vh, 7vw);
+  box-sizing: border-box;
+  box-shadow: 0 1.125mm 0.75mm -0.5mm rgba(0, 0, 0, 0.4);
+  border-style: solid;
+  border-top-width: 0.75mm;
+  border-left-width: 1px;
+  border-right-width: 1px;
+  border-bottom-width: 1.125mm;
+  border-top-color: rgba(255, 255, 255, 0.45);
+  border-left-color: rgba(255, 255, 255, 0.25);
+  border-right-color: rgba(0, 0, 0, 0.15);
+  border-bottom-color: rgba(0, 0, 0, 0.3);
+  border-radius: 0.75mm;
+}
+.rack .playable-tile[data-letter]::before {
+  content: attr(data-letter);
+  text-transform: uppercase;
+  font-family: Oswald, sans-serif;
+  font-size: min(5vh, 5vw);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: rgba(0, 0, 0, 0.6);
+  text-shadow: 4px 4px 6px #f5cf90, 0 0 0 rgba(0, 0, 0, 0.7), 1px 2px 1px rgba(255, 255, 255, 0.5);
+}
+.rack .playable-tile[data-letter]::after {
+  color: rgba(0, 0, 0, 0.7);
+  font-family: sans-serif;
+  font-size: min(2vh, 2vw);
+  position: absolute;
+  right: 12.5%;
+  bottom: 12.5%;
+  transform: translate(50%, 50%);
+}
+.rack .playable-tile[data-letter='a']::after,
+.rack .playable-tile[data-letter='e']::after,
+.rack .playable-tile[data-letter='i']::after,
+.rack .playable-tile[data-letter='l']::after,
+.rack .playable-tile[data-letter='n']::after,
+.rack .playable-tile[data-letter='o']::after,
+.rack .playable-tile[data-letter='r']::after,
+.rack .playable-tile[data-letter='s']::after,
+.rack .playable-tile[data-letter='t']::after,
+.rack .playable-tile[data-letter='u']::after {
+  content: "1";
+}
+.rack .playable-tile[data-letter='d']::after,
+.rack .playable-tile[data-letter='g']::after,
+.rack .playable-tile[data-letter='m']::after {
+  content: "2";
+}
+.rack .playable-tile[data-letter='b']::after,
+.rack .playable-tile[data-letter='c']::after,
+.rack .playable-tile[data-letter='p']::after {
+  content: "3";
+}
+.rack .playable-tile[data-letter='f']::after,
+.rack .playable-tile[data-letter='h']::after,
+.rack .playable-tile[data-letter='v']::after {
+  content: "4";
+}
+.rack .playable-tile[data-letter='j']::after,
+.rack .playable-tile[data-letter='q']::after {
+  content: "8";
+}
+.rack .playable-tile[data-letter='k']::after,
+.rack .playable-tile[data-letter='w']::after,
+.rack .playable-tile[data-letter='x']::after,
+.rack .playable-tile[data-letter='y']::after,
+.rack .playable-tile[data-letter='z']::after{
+  content: "10";
+}
+
+.mini {
+  /*margin-top: 12.5mm;*/
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  /*width: 103.55mm;
+  height: 103.55mm;*/
+}
+
+.invisible {
+  display: none;
+}
+
+.mini .playable-tile {
+  background-color: #f5cf90;
+  background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/49914/veneer-birch-texture-fs8.png');
+  position: relative;
+  width: min(4.7vh,4.7vw);
+  height: min(4.7vh,4.7vw);
+  box-sizing: border-box;
+  /*box-shadow: 0 0.5625mm 0.375mm -0.25mm rgba(0, 0, 0, 0.4);*/
+  border-style: solid;
+  border-top-width: 0.375mm;
+  border-left-width: 1px;
+  border-right-width: 1px;
+  border-bottom-width: 0.5625mm;
+  border-top-color: rgba(255, 255, 255, 0.45);
+  border-left-color: rgba(255, 255, 255, 0.25);
+  border-right-color: rgba(0, 0, 0, 0.15);
+  border-bottom-color: rgba(0, 0, 0, 0.3);
+  border-radius: 0.375mm;
+  z-index: 9999;
+}
+.mini .playable-tile[data-letter]::before {
+  content: attr(data-letter);
+  text-transform: uppercase;
+  font-family: Oswald, sans-serif;
+  font-size: min(3vh,3vw);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: rgba(0, 0, 0, 0.6);
+  text-shadow: 4px 4px 6px #f5cf90, 0 0 0 rgba(0, 0, 0, 0.7), 1px 2px 1px rgba(255, 255, 255, 0.5);
+}
+.mini .playable-tile[data-letter]::after {
+  color: rgba(0, 0, 0, 0.7);
+  font-family: sans-serif;
+  font-size: 90%;
+  position: absolute;
+  right: 14.5%;
+  bottom: 14.5%;
+  transform: translate(50%, 50%);
+}
+
+.mini .playable-tile[data-letter='a']::after,
+.mini .playable-tile[data-letter='e']::after,
+.mini .playable-tile[data-letter='i']::after,
+.mini .playable-tile[data-letter='l']::after,
+.mini .playable-tile[data-letter='n']::after,
+.mini .playable-tile[data-letter='o']::after,
+.mini .playable-tile[data-letter='r']::after,
+.mini .playable-tile[data-letter='s']::after,
+.mini .playable-tile[data-letter='t']::after,
+.mini .playable-tile[data-letter='u']::after {
+  content: "1";
+}
+.mini .playable-tile[data-letter='d']::after,
+.mini .playable-tile[data-letter='g']::after,
+.mini .playable-tile[data-letter='m']::after {
+  content: "2";
+}
+.mini .playable-tile[data-letter='b']::after,
+.mini .playable-tile[data-letter='c']::after,
+.mini .playable-tile[data-letter='p']::after {
+  content: "3";
+}
+.mini .playable-tile[data-letter='f']::after,
+.mini .playable-tile[data-letter='h']::after,
+.mini .playable-tile[data-letter='v']::after {
+  content: "4";
+}
+.mini .playable-tile[data-letter='j']::after,
+.mini .playable-tile[data-letter='q']::after {
+  content: "8";
+}
+.mini .playable-tile[data-letter='k']::after,
+.mini .playable-tile[data-letter='w']::after,
+.mini .playable-tile[data-letter='x']::after,
+.mini .playable-tile[data-letter='y']::after,
+.mini .playable-tile[data-letter='z']::after {
+  content: "10";
+}
+
