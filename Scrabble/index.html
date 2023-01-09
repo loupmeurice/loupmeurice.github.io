@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+
+  <title>Jeu de Scrabble en ligne</title>
+  <head>
+	<link rel="stylesheet" href="tiles.css">
+	<link rel="stylesheet" href="draggable.css">
+	<link rel="stylesheet" href="board.css">
+	  <link rel="stylesheet" href="style.css">
+	  <link rel="stylesheet"
+			href=
+					"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+
+
+<body  onselectstart="return false">
+  <div id="js-board"></div>
+  <div class="rack">
+	<div style="display:inline-block;"><div><a><img src="img/rack.svg"></a></div></div>
+	<div class="draggable" position="0">
+		<div class="playable-tile" data-letter="s" style="transform: rotate(1.6405deg); background-color: rgb(216, 170, 95);"></div>
+	</div>
+	<div class="draggable" position="1">
+		<div class="playable-tile" data-letter="c" style="transform: rotate(1.6405deg); background-color: rgb(216, 170, 95);"></div>
+	</div>
+	<div class="draggable" position="2">
+		<div class="playable-tile" data-letter="r" style="transform: rotate(1.6405deg); background-color: rgb(216, 170, 95);"></div>
+	</div>
+	<div class="draggable" position="3">
+		<div class="playable-tile" data-letter="a" style="transform: rotate(1.6405deg); background-color: rgb(216, 170, 95);"></div>
+	</div>
+	<div class="draggable" position="4">
+		<div class="playable-tile" data-letter="b" style="transform: rotate(1.6405deg); background-color: rgb(216, 170, 95);"></div>
+	</div>
+	<div class="draggable" position="5">
+		<div class="playable-tile" data-letter="b" style="transform: rotate(1.6405deg); background-color: rgb(216, 170, 95);"></div>
+	</div>
+	<div class="draggable" position="6">
+		<div class="playable-tile" data-letter="l" style="transform: rotate(1.6405deg); background-color: rgb(216, 170, 95);"></div>
+	</div>
+  </div>
+  <div id="buttons">
+
+	  <button id="playBtn" class="outline" onclick="controller.play();">Jouer<span id="currentPlayScore"></span></button>
+	  <button id="resetRackBtn" class="outline" onclick="resetRackAndBoard()">
+		  <i class="fa fa-arrow-down"></i>
+		  <i class="fa fa-arrow-down"></i>
+	  </button>
+	  <div id="loader" style="display: none;"><span class="loader"></span></div>
+	  <button style="display: none;" id="shareBtn" class="outline" onclick="controller.shareGame();">Partager ma partie</button>
+
+  </div>
+
+  <div id="score" class="invisible">
+	  <br>
+	  <div><span>Votre score:</span><span id="yourscore"></span></div>
+	  <div id="opponent" style="display:none;"><span id="opponentName"></span><span id="opponentscore"></span></div>
+	  <div><span>Score du Maître:</span><span id="masterscore"></span></div>
+	  <br>
+	  <div><span>Tours joués:</span><span id="playnumber"></span></div>
+	  <br>
+	  <div><span>Lettres restantes:</span><span id="letternumber"></span></div>
+	  <br>
+	  <div><span id="info"></span></div>
+	  <br>
+	  <div><span id="error"></span></div>
+  </div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js" integrity="sha256-/H4YS+7aYb9kJ5OKhFYPUjSJdrtV6AeyJOtTkw6X72o=" crossorigin="anonymous"></script>
+<script src="stopExecutionOnTimeout.js"></script>
+<script src="board.js"></script>
+<script src="tinycolor.js"></script>
+<script type="text/javascript" src="tile-position.js"></script>
+<script type="text/javascript" src="GamePOJO.js"></script>
+<script type="text/javascript" src="sharedGame.js"></script>
+<script type="text/javascript" src="dictionary.js"></script>
+<script type="text/javascript" src="model.js"></script>
+<script type="text/javascript" src="controller.js"></script>
+<script type="text/javascript" src="master.js"></script>
+  
+<script>
+	controller = new Controller();
+	master = new Master(controller.model, controller);
+</script>
+<script type="text/javascript" src="draggable.js"></script>
+<script type="text/javascript" src="score.js"></script>
+
+<script>
+	controller.searchForBestPlay();
+	//document.addEventListener('touchmove', function(e) { e.preventDefault(); }, { passive:false });
+</script>
+
+
+</body></html>
