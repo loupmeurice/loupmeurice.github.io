@@ -92,6 +92,19 @@
 <script>
 	controller.searchForBestPlay();
 	//document.addEventListener('touchmove', function(e) { e.preventDefault(); }, { passive:false });
+	
+	function internalHandler(e) {
+		e.preventDefault(); // required in some browsers
+		e.returnValue = ""; // required in some browsers
+		return "Êtes-vous sur(e) de vouloir quitter la partie?"; // only works in old browsers
+	}
+
+	if (window.addEventListener) {
+		window.addEventListener('beforeunload', internalHandler, true);
+	} else if (window.attachEvent) {
+		window.attachEvent('onbeforeunload', internalHandler);
+	}
+	
 </script>
 
 
