@@ -38,7 +38,7 @@ class Controller {
                this.redrawInARow = 0;
                this.masterIsDone();
            }
-        }, 1);
+        }, 100);
     }
 
 
